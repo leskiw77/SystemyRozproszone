@@ -11,4 +11,6 @@ public class Utils {
     public static final int PORT = 9001;
     public static final int multicastPort = 9002;
     public static final String multicastIP = "230.1.1.1";
+
+    public static final String serverAddress = "localhost";
 }

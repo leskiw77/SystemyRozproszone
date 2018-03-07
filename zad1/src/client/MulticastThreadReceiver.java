@@ -1,9 +1,11 @@
 package client;
 
+import utils.Utils;
+
 import java.io.IOException;
 import java.net.DatagramPacket;
+import java.net.InetAddress;
 import java.net.MulticastSocket;
-
 
 public class MulticastThreadReceiver extends Thread {
 
@@ -15,6 +17,8 @@ public class MulticastThreadReceiver extends Thread {
 
     public void run() {
         try {
+            multicastSocket.joinGroup(InetAddress.getByName(Utils.multicastIP));
+
             while (true) {
                 DatagramPacket datagramPacket = new DatagramPacket(new byte[1024], 1024);
                 multicastSocket.receive(datagramPacket);

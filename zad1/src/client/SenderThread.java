@@ -11,8 +11,8 @@ import static java.net.InetAddress.getByName;
 
 class SenderThread extends Thread {
 
-    private final String mockedMultimediaMessage = "Mocked Multimedia Message";
-    private final String mockedMultimediaMulticastMessage = "Mocked Multimedia Message using Multicast";
+    private final String mockedMultimediaMessage = "Mocked UDP Message";
+    private final String mockedMultimediaMulticastMessage = "Mocked Multicast Message";
 
     private final BufferedReader consoleReader;
     private final DatagramSocket udpServerSocket;
@@ -36,8 +36,7 @@ class SenderThread extends Thread {
                     case Utils.udpCommand:
                         System.out.println("UDP message send");
 
-                        //TODO: change to global address
-                        InetAddress address = getByName("localhost");
+                        InetAddress address = getByName(Utils.serverAddress);
 
                         byte[] dataToSendUDP = mockedMultimediaMessage.getBytes();
                         DatagramPacket packetToSend = new DatagramPacket(dataToSendUDP, dataToSendUDP.length, address, Utils.PORT);

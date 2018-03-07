@@ -27,7 +27,7 @@ class UDPHandler extends Thread {
                 DatagramPacket receivedPacket = new DatagramPacket(buffer, buffer.length);
                 datagramSocket.receive(receivedPacket);
                 String message = new String(receivedPacket.getData(), receivedPacket.getOffset(), receivedPacket.getLength());
-                System.out.println("Received new message via UDP connection: " + message);
+                System.out.println("Received message via UDP connection: " + message);
                 byte[] sendBuffer = message.getBytes();
 
                 for(ChatUser chatUser: chatUsers){

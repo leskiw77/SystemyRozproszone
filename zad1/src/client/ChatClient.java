@@ -12,7 +12,7 @@ public class ChatClient {
 
     private void run() throws IOException {
 
-        Socket socket = new Socket("localhost", Utils.PORT);
+        Socket socket = new Socket(Utils.serverAddress, Utils.PORT);
         PrintWriter serverTCPWriter = new PrintWriter(socket.getOutputStream(), true);
 
         DatagramSocket udpServerSocket = new DatagramSocket();
